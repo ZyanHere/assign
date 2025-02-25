@@ -38,6 +38,14 @@ export default function ProfileForm() {
   };
   const handleNext = () => {
     console.log("handleNextCalling");
+    if (Object.keys(formData).length === 0) {
+      console.log("no data")
+      alert("Please fill in at least one field before proceeding.");
+      return;
+    }
+
+    console.log("length", Object.keys(formData).length)
+
     if (!formData.firstName && !formData.lastName && !formData.email && !formData.dob) {
       alert("Please fill in at least one field before proceeding.");
       return;

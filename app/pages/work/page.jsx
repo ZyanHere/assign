@@ -14,8 +14,35 @@ export default function WorkForm() {
     current: false,
   });
 
-  const [check, setCheck] = useState(false);
+
+  // const [check, setCheck] = useState(false);
   
+
+  // useEffect(() => {
+  //   const data = localStorage.getItem("workData");
+  //   console.log("data",data);
+  //   if (data) {
+  //     setWorkData(JSON.parse(data));
+  //   }
+  // }, []);
+
+  // console.log("workData",workData);
+
+
+
+  // useEffect(() => {
+  //   setWorkData({ ...workData, current: check});
+  // },[check])
+  // console.log(check)
+
+  // const handleChange = (e) => {
+  //   setWorkData({ ...workData, [e.target.name]: e.target.value });
+  // };
+  // console.log(workData);
+
+
+
+
 
   useEffect(() => {
     const data = localStorage.getItem("workData");
@@ -24,15 +51,14 @@ export default function WorkForm() {
     }
   }, []);
 
-  useEffect(() => {
-    setWorkData({ ...workData, current: check});
-  },[check])
-  console.log(check)
-
   const handleChange = (e) => {
-    setWorkData({ ...workData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setWorkData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
-  console.log(workData);
+
 
 
 
@@ -118,7 +144,8 @@ export default function WorkForm() {
                         type="checkbox"
                         name="current"
                         value={workData.current}
-                        onClick={() => setCheck((prev) => !prev)}
+                        // onClick={() => setCheck((prev) => !prev)}
+                        onChange={handleChange}
                         className="mr-2 w-5"
                     
                     />

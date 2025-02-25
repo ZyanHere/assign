@@ -37,7 +37,7 @@ export default function EducationForm() {
     console.log("handleNextCalling");
   
     if (!educationData.degree || !educationData.roles) {
-      console.warn("Please fill in all fields before proceeding.");
+      alert("Please fill in all fields before proceeding.");
       return;
     }
   

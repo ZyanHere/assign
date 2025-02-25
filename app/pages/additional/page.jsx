@@ -137,7 +137,7 @@ export default function AdditionForm() {
                 name="proBono"
                 value={additionalData.proBono}
                 onChange={handleChange}
-                className="mt-1 p- w-full border border-gray-400 rounded-md focus:ring focus:ring-blue-300 bg-blue-100 text-gray-800"
+                className="mt-1 p-2 w-full border border-gray-400 rounded-md focus:ring focus:ring-blue-300 bg-blue-100 text-gray-800"
                 placeholder="Summary of any voluntary legal services offered."
                 required
               />
